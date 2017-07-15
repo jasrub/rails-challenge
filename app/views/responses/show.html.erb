@@ -27,7 +27,7 @@
             <td>
               <% if question_choice == question_response.question_choice %>
                 <strong class="text-<%= question_choice.score > 0 ? 'success' : 'danger' %>">
-                  <%= question_choice.text %>
+                  <%= question_choice.text %> <%= question_choice.score %>
                 </strong>
               <% else %>
                 <span class="text-muted">
