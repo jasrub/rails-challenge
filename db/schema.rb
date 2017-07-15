@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215015037) do
+ActiveRecord::Schema.define(version: 20170715193031) do
+
+  create_table "colors", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "creative_qualities", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "color_id"
+    t.index ["color_id"], name: "index_creative_qualities_on_color_id"
   end
 
   create_table "question_choices", force: :cascade do |t|

@@ -7,7 +7,7 @@
     <div class="row">
       <%= @creative_qualities.find_each do |creative_quality| %>
         <div class="col-md-4">
-          <div class="panel panel-default">
+          <div class="panel panel-<%= creative_quality.color ? creative_quality.color.name : 'default' %>">
             <div class="panel-heading">
               <%= creative_quality.name %>
             </div>
