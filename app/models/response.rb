@@ -21,7 +21,11 @@ class Response < ApplicationRecord
       creative_quliaties_scores << {creative_quality_id: creative_quality_id, scores: scores}
     end
     creative_quliaties_scores 
+  end
 
+  def get_scores_for_quality(quality_id)
+    responses = question_responses.joins(:question_choice).where(question_choices: {creative_quality_id: quality_id})
+    get_creative_quality_scores(responses)
   end
 
   private

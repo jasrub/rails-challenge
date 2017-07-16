@@ -20,7 +20,11 @@
               <hr>
 
               <p>
-                <strong>Your Score: _______</strong>
+                <div class="progress">
+                <div class="progress-bar progress-bar<%= creative_quality.color ? '-'+creative_quality.color.name : '' %>" 
+                      style="width: <%= creative_quality.avg_score %>%"></div>
+                </div>
+                <strong>Your Score: <%= creative_quality.avg_score %></strong>
               </p>
             </div>
           </div>
