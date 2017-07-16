@@ -13,6 +13,21 @@
         of
         <%= Question.count %>
         questions
+        <hr>
+        <% @response.scores_by_quality.each do |quality_scores|  %>
+          <% quality = CreativeQuality.find(quality_scores[:creative_quality_id]) %>
+          <div>
+            <strong class="text-<%= quality.color.name %>"> 
+                <%= quality.name %>: <%= quality_scores[:scores][:normalized] %> 
+            </strong>
+            <ul>
+              <li>Raw score: <%= quality_scores[:scores][:raw] %></li>
+              <li class="text-muted">Min score: <%= quality_scores[:scores][:min] %></li>
+              <li class="text-muted">Max score: <%= quality_scores[:scores][:max] %></li>
+            </ul>
+
+          </div>
+        <% end %>
       </div>
     </div>
 
